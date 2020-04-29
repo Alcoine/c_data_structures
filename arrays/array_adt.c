@@ -20,7 +20,7 @@ int main()
     scanf("%d", &array.size);
 
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
-    ararrayr.length = 0;
+    array.length = 0;
 
     return 0;
 }
