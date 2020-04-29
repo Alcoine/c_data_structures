@@ -12,6 +12,8 @@ struct Array
     int length;
 };
 
+void display(struct Array array);
+
 int main()
 {
     struct Array array;
@@ -23,4 +25,10 @@ int main()
     array.length = 0;
 
     return 0;
+}
+
+void display(struct Array array)
+{
+    for (int i = 0; i < array.length; i += 1)
+        printf("%d, ", array.arr[i]);
 }
