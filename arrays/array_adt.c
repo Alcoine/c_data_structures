@@ -48,17 +48,12 @@ void display(struct Array array)
 
 void insert(struct Array array, int element, int atIdx)
 {
-    int temp = array.arr[atIdx];
-    array.arr[atIdx] = element;
-    for (int i = atIdx + 1; i < array.length; i += 1)
-    {
-        array.arr[i] = temp;
-        if ((i + 1) < array.length)
-            temp = array.arr[i + 1];
-        else
-            break;
-    }
+    // TODO: add check of adIdx and actual array length/size
 
+    for (int i = array.length; i > atIdx; i -= 1)
+        array.arr[i] = array.arr[i - 1];
+
+    array.arr[atIdx] = element;
     array.length += 1;
 }
 
