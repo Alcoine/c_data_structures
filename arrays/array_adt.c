@@ -12,7 +12,10 @@ struct Array
     int length;
 };
 
+
 void display(struct Array array);
+void insert(struct Array array);
+void add(struct Array array);
 
 int main()
 {
@@ -31,4 +34,14 @@ void display(struct Array array)
 {
     for (int i = 0; i < array.length; i += 1)
         printf("%d, ", array.arr[i]);
+}
+
+void insert(struct Array array)
+{
+
+}
+
+void add(struct Array array)
+{
+
 }
