@@ -34,6 +34,8 @@ int main()
 
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
+    insert(array, 123, 0);
+    printf("%d", array.arr[0]);
 
     return 0;
 }
@@ -46,7 +48,16 @@ void display(struct Array array)
 
 void insert(struct Array array, int element, int atIdx)
 {
-    
+    int temp = array.arr[atIdx];
+    array.arr[atIdx] = element;
+    for (int i = atIdx + 1; i < array.length; i += 1)
+    {
+        array.arr[i] = temp;
+        if ((i + 1) < array.length)
+            temp = array.arr[i + 1];
+        else
+            break;
+    }
 }
 
 void add(struct Array array, int element)
