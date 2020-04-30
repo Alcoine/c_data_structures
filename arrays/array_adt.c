@@ -14,7 +14,7 @@ struct Array
 
 
 void display(struct Array array);
-void insert(struct Array array);
+void insert(struct Array array, int element);
 void add(struct Array array);
 void delete(struct Array array);
 void search(struct Array array);
@@ -44,9 +44,10 @@ void display(struct Array array)
         printf("%d, ", array.arr[i]);
 }
 
-void insert(struct Array array)
+void insert(struct Array array, int element)
 {
-
+    array.arr[array.length] = element;
+    array.length += 1;
 }
 
 void add(struct Array array)
