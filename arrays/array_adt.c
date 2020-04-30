@@ -16,6 +16,14 @@ struct Array
 void display(struct Array array);
 void insert(struct Array array);
 void add(struct Array array);
+void delete(struct Array array);
+void search(struct Array array);
+void get(struct Array array);
+void set(struct Array array);
+void max(struct Array array);
+void min(struct Array array);
+void reverse(struct Array array);
+void shift(struct Array array);
 
 int main()
 {
