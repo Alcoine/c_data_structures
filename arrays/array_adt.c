@@ -58,6 +58,8 @@ void insert(struct Array array, int element, int atIdx)
         else
             break;
     }
+
+    array.length += 1;
 }
 
 void add(struct Array array, int element)
