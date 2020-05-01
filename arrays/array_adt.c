@@ -48,7 +48,8 @@ void display(struct Array *array)
 
 void insert(struct Array *array, int element, int atIdx)
 {
-    // TODO: add check of adIdx and actual array length/size
+    if (atIdx < 0 || atIdx > (*array).length)
+        return;
 
     for (int i = (*array).length; i > atIdx; i -= 1)
         (*array).arr[i] = (*array).arr[i - 1];
