@@ -14,7 +14,12 @@ int pow(int num, int power)
         return 1;
     }
 
-    return pow(num, power - 1) * num;
+    if (power % 2 == 0)
+    {
+        return pow((num * num), (power / 2));
+    }
+
+    return num * pow((num * num), ( (power - 1) / 2 ));
 }
 
 int main()
