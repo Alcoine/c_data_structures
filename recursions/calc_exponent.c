@@ -14,7 +14,6 @@ int pow(int num, int power)
         return 1;
     }
 
-
     if (power % 2 == 0)
     {
         return pow((num * num), (power / 2));
