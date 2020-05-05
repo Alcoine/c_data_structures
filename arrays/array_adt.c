@@ -1,7 +1,3 @@
-/*
-    Array ADT
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -11,7 +7,6 @@ struct Array
     int size;
     int length;
 };
-
 
 void display(struct Array *array);
 void insert(struct Array *array, int element, int atIdx);
