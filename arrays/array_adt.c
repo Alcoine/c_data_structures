@@ -19,6 +19,8 @@ void max(struct Array *array);
 void min(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
+void linear_search(struct Array *array);
+void binary_search(struct Array *array);
 
 int main()
 {
@@ -34,7 +36,7 @@ int main()
     insert(&array, 6666, 0);
     display(&array);
     delete(&array, 0);
-    printf("%d", array.arr[0]);
+    display(&array);
 
     return 0;
 }
