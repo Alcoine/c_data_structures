@@ -22,6 +22,7 @@ void reverse(struct Array *array);
 void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
 bool binary_search(struct Array *array, int target);
+void bubble_sort(struct Array *array);
 
 int main()
 {
@@ -34,16 +35,36 @@ int main()
     array.length = 0;
     insert(&array, 4, 0);
     insert(&array, 123, 0);
-    insert(&array, 432, 0);
-    insert(&array, 6666, 0);
+    insert(&array, 41, 0);
+    insert(&array, 312, 0);
+    insert(&array, 5555, 0);
+    insert(&array, 87, 0);
+    insert(&array, 65, 0);
+    insert(&array, 99, 0);
+    insert(&array, 76, 0);
+    bubble_sort(&array);
     display(&array);
-    delete(&array, 0);
-    display(&array);
-    bool hasFiveNum = linear_search(&array, 5);
-    printf("Has 5: %s\n", hasFiveNum ? "true" : "false");
-    bool hasFourNum = linear_search(&array, 4);
-    printf("Has 4: %s\n", hasFourNum ? "true" : "false");
+    
     return 0;
+}
+
+void swap(struct Array *array, int fromIdx, int toIdx)
+{
+    int tempToIdxVal = (*array).arr[toIdx];
+    (*array).arr[toIdx] = (*array).arr[fromIdx];
+    (*array).arr[fromIdx] = tempToIdxVal;
+}
+
+void bubble_sort(struct Array *array)
+{
+    for (int outer = 0; outer < (*array).length; outer += 1)
+    {
+        for (int inner = outer + 1; inner < (*array).length; inner += 1)
+        {
+            if ((*array).arr[outer] > (*array).arr[inner])
+                swap(array, outer, inner);
+        }
+    }
 }
 
 void display(struct Array *array)
