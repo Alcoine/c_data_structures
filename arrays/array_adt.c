@@ -11,7 +11,7 @@ struct Array
 void display(struct Array *array);
 void insert(struct Array *array, int element, int atIdx);
 void add(struct Array *array, int element);
-void delete(struct Array *array);
+void delete(struct Array *array, int atIdx);
 void search(struct Array *array);
 void get(struct Array *array);
 void set(struct Array *array);
@@ -30,6 +30,10 @@ int main()
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
     insert(&array, 123, 0);
+    insert(&array, 432, 0);
+    insert(&array, 6666, 0);
+    display(&array);
+    delete(&array, 0);
     printf("%d", array.arr[0]);
 
     return 0;
@@ -38,7 +42,7 @@ int main()
 void display(struct Array *array)
 {
     for (int i = 0; i < (*array).length; i += 1)
-        printf("%d, ", (*array).arr[i]);
+        printf("%d\n", (*array).arr[i]);
 }
 
 void insert(struct Array *array, int element, int atIdx)
@@ -51,6 +55,17 @@ void insert(struct Array *array, int element, int atIdx)
 
     (*array).arr[atIdx] = element;
     (*array).length += 1;
+}
+
+void delete(struct Array *array, int atIdx)
+{
+    if (atIdx < 0 || atIdx > (*array).size)
+        return;
+
+    for (int i = atIdx; i < (*array).length; i += 1)
+        (*array).arr[i] = (*array).arr[i + 1];
+
+    (*array).length -= 1;
 }
 
 void add(struct Array *array, int element)
