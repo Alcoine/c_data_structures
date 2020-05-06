@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 struct Array
 {
@@ -19,8 +20,8 @@ void max(struct Array *array);
 void min(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
-void linear_search(struct Array *array, int target);
-void binary_search(struct Array *array, int target);
+bool linear_search(struct Array *array, int target);
+bool binary_search(struct Array *array, int target);
 
 int main()
 {
@@ -31,13 +32,17 @@ int main()
 
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
+    insert(&array, 4, 0);
     insert(&array, 123, 0);
     insert(&array, 432, 0);
     insert(&array, 6666, 0);
     display(&array);
     delete(&array, 0);
     display(&array);
-
+    bool hasFiveNum = linear_search(&array, 5);
+    printf("Has 5: %s\n", hasFiveNum ? "true" : "false");
+    bool hasFourNum = linear_search(&array, 4);
+    printf("Has 4: %s\n", hasFourNum ? "true" : "false");
     return 0;
 }
 
@@ -77,4 +82,13 @@ void add(struct Array *array, int element)
         (*array).arr[(*array).length] = element;
         (*array).length += 1;
     }
+}
+
+bool linear_search(struct Array *array, int target)
+{
+    for (int i = 0; i < (*array).length; i += 1)
+        if((*array).arr[i] == target)
+            return true;
+
+    return false;
 }
