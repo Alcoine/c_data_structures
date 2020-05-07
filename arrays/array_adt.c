@@ -44,7 +44,11 @@ int main()
     insert(&array, 76, 0);
     bubble_sort(&array);
     display(&array);
-    
+    bool binary1 = binary_search(&array, 87);
+    printf("\nHas 87?: %s\n", binary1 ? "true" : false);
+    bool binary2 = binary_search(&array, 312);
+    printf("\nHas 312?: %s\n", binary2 ? "true" : false);
+
     return 0;
 }
 
@@ -110,6 +114,35 @@ bool linear_search(struct Array *array, int target)
     for (int i = 0; i < (*array).length; i += 1)
         if((*array).arr[i] == target)
             return true;
+
+    return false;
+}
+
+bool binary_search(struct Array *array, int target)
+{
+    if ((*array).length < 0)
+        return false;
+
+    int lowerBound = 0,
+        upperBound = (*array).length - 1,
+        middle = (lowerBound + upperBound) / 2;
+        
+    do
+    {
+        if ((*array).arr[middle] == target)
+            return true;
+
+        if ((*array).arr[middle] < target)
+        {
+            lowerBound = middle;
+            middle = (lowerBound + upperBound) / 2;
+        }
+        else
+        {
+            upperBound = middle;
+            middle = (lowerBound + upperBound) / 2;
+        }
+    } while (middle);
 
     return false;
 }
