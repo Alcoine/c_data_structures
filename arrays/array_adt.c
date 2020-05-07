@@ -34,14 +34,14 @@ int main()
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
     insert(&array, 4, 0);
-    insert(&array, 123, 0);
-    insert(&array, 41, 0);
-    insert(&array, 312, 0);
-    insert(&array, 5555, 0);
-    insert(&array, 87, 0);
-    insert(&array, 65, 0);
-    insert(&array, 99, 0);
-    insert(&array, 76, 0);
+    // insert(&array, 123, 0);
+    // insert(&array, 41, 0);
+    // insert(&array, 312, 0);
+    // insert(&array, 5555, 0);
+    // insert(&array, 87, 0);
+    // insert(&array, 65, 0);
+    // insert(&array, 99, 0);
+    // insert(&array, 76, 0);
     bubble_sort(&array);
     display(&array);
     bool binary1 = binary_search(&array, 87);
@@ -126,7 +126,7 @@ bool binary_search(struct Array *array, int target)
     int lowerBound = 0,
         upperBound = (*array).length - 1,
         middle = (lowerBound + upperBound) / 2;
-        
+    int count = 0;
     do
     {
         if ((*array).arr[middle] == target)
@@ -134,14 +134,18 @@ bool binary_search(struct Array *array, int target)
 
         if ((*array).arr[middle] < target)
         {
-            lowerBound = middle;
+            lowerBound = middle + 1;
             middle = (lowerBound + upperBound) / 2;
         }
         else
         {
-            upperBound = middle;
+            upperBound = middle - 1;
             middle = (lowerBound + upperBound) / 2;
         }
+
+        if (lowerBound > upperBound)
+            return false;
+
     } while (middle);
 
     return false;
