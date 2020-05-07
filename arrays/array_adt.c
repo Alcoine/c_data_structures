@@ -127,7 +127,7 @@ bool binary_search(struct Array *array, int target)
         upperBound = (*array).length - 1,
         middle = (lowerBound + upperBound) / 2;
 
-    while (lowerBound < upperBound)
+    while (lowerBound <= upperBound)
     {
         if ((*array).arr[middle] == target)
             return true;
