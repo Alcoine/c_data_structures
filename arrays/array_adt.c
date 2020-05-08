@@ -150,7 +150,7 @@ bool binary_search(struct Array *array, int target)
 
 int get(struct Array *array, int idx)
 {
-    if (idx > ((*array).length - 1))
+    if (idx > ((*array).length - 1) || idx < 0)
         return -1;
 
     return (*array).arr[idx];
@@ -158,7 +158,7 @@ int get(struct Array *array, int idx)
 
 int set(struct Array *array, int idx, int elem)
 {
-    if (idx > ((*array).length - 1))
+    if (idx > ((*array).length - 1) || idx < 0)
         return -1;
 
     (*array).arr[idx] = elem;
