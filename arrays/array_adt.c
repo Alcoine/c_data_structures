@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <limits.h>
 
 struct Array
 {
@@ -164,5 +165,24 @@ int set(struct Array *array, int idx, int elem)
     return elem;
 }
 
-int max(struct Array *array);
-int min(struct Array *array);
+int max(struct Array *array)
+{
+    int max = INT_MIN;
+
+    for (int i = 0; i < (*array).length; i += 1)
+        if ((*array).arr[i] > max)
+            max = (*array).arr[i];
+
+    return max;
+}
+
+int min(struct Array *array)
+{
+    int min = INT_MAX;
+
+    for (int i = 0; i < (*array).length; i += 1)
+        if ((*array).arr[i] < min)
+            min = (*array).arr[i];
+
+    return min;
+}
