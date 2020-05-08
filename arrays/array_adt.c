@@ -27,6 +27,7 @@ void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
 bool binary_search(struct Array *array, int target);
 void bubble_sort(struct Array *array);
+bool is_sorted_asc(struct Array *array);
 
 int main()
 {
@@ -50,12 +51,17 @@ int main()
     // bubble_sort(&array);
     // display(&array);
     // bool binary1 = binary_search(&array, 87);
-    // printf("\nHas 87?: %s\n", binary1 ? "true" : false);
+    // printf("\nHas 87?: %s\n", binary1 ? "true" : "false");
     // bool binary2 = binary_search(&array, 312);
-    // printf("\nHas 312?: %s\n", binary2 ? "true" : false);
+    // printf("\nHas 312?: %s\n", binary2 ? "true" : "false");
     display(&array);
     reverse(&array);
     display(&array);
+    bool is_sorted = is_sorted_asc(&array);
+    printf("\nsorted?: %s\n", is_sorted ? "true" : "false");
+    bubble_sort(&array);
+    is_sorted = is_sorted_asc(&array);
+    printf("\nsorted?: %s\n", is_sorted ? "true" : "false");
 
     return 0;
 }
@@ -242,4 +248,13 @@ void reverse(struct Array *array)
         (*array).arr[i] = (*array).arr[(*array).length - 1 - i];
         (*array).arr[(*array).length - 1 - i] = temp_storage;
     }
+}
+
+bool is_sorted_asc(struct Array *array)
+{
+    for (int i = 0; i < (*array).length - 1; i += 1)
+        if ((*array).arr[i] > (*array).arr[i + 1])
+            return false;
+
+    return true;
 }
