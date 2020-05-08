@@ -20,6 +20,7 @@ int set(struct Array *array, int idx, int elem);
 int max(struct Array *array);
 int min(struct Array *array);
 int avg(struct Array *array);
+int sum(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
@@ -170,7 +171,7 @@ int max(struct Array *array)
 {
     if ((*array).length < 1)
         return -1;
-        
+
     int max = (*array).arr[0];
 
     for (int i = 1; i < (*array).length; i += 1)
@@ -208,4 +209,17 @@ int avg(struct Array *array)
     avg = temp_acc / (*array).length;
 
     return avg;
+}
+
+int sum(struct Array *array)
+{
+    if ((*array).length < 1)
+        return -1;
+
+    int total = 0;
+
+    for (int i = 0; i < (*array).length; i += 1)
+        total += (*array).arr[i];
+
+    return total;
 }
