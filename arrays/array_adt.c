@@ -46,6 +46,7 @@ int main()
     insert(&array, 65, 0);
     insert(&array, 99, 0);
     insert(&array, 76, 0);
+    insert(&array, 76, 0);
     // bubble_sort(&array);
     // display(&array);
     // bool binary1 = binary_search(&array, 87);
@@ -233,12 +234,12 @@ void reverse(struct Array *array)
     if ((*array).length < 1)
         return;
 
-    int *temp_array;
-    temp_array = (int *)malloc((*array).size * (sizeof(*temp_array)));
+    int temp_storage;
 
-    for (int i = (*array).length - 1; i >= 0; i -= 1)
-        temp_array[(*array).length - 1 - i] = (*array).arr[i];
-
-    for (int i = 0; i < (*array).length; i += 1)
-        (*array).arr[i] = temp_array[i];
+    for (int i = 0; i < (*array).length / 2; i += 1)
+    {
+        temp_storage = (*array).arr[i];
+        (*array).arr[i] = (*array).arr[(*array).length - 1 - i];
+        (*array).arr[(*array).length - 1 - i] = temp_storage;
+    }
 }
