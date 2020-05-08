@@ -21,6 +21,7 @@ int max(struct Array *array);
 int min(struct Array *array);
 int avg(struct Array *array);
 int sum(struct Array *array);
+int r_sum(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
@@ -37,20 +38,23 @@ int main()
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
     insert(&array, 4, 0);
-    // insert(&array, 123, 0);
-    // insert(&array, 41, 0);
-    // insert(&array, 312, 0);
-    // insert(&array, 5555, 0);
-    // insert(&array, 87, 0);
-    // insert(&array, 65, 0);
-    // insert(&array, 99, 0);
-    // insert(&array, 76, 0);
-    bubble_sort(&array);
+    insert(&array, 123, 0);
+    insert(&array, 41, 0);
+    insert(&array, 312, 0);
+    insert(&array, 5555, 0);
+    insert(&array, 87, 0);
+    insert(&array, 65, 0);
+    insert(&array, 99, 0);
+    insert(&array, 76, 0);
+    // bubble_sort(&array);
+    // display(&array);
+    // bool binary1 = binary_search(&array, 87);
+    // printf("\nHas 87?: %s\n", binary1 ? "true" : false);
+    // bool binary2 = binary_search(&array, 312);
+    // printf("\nHas 312?: %s\n", binary2 ? "true" : false);
     display(&array);
-    bool binary1 = binary_search(&array, 87);
-    printf("\nHas 87?: %s\n", binary1 ? "true" : false);
-    bool binary2 = binary_search(&array, 312);
-    printf("\nHas 312?: %s\n", binary2 ? "true" : false);
+    reverse(&array);
+    display(&array);
 
     return 0;
 }
@@ -222,4 +226,19 @@ int sum(struct Array *array)
         total += (*array).arr[i];
 
     return total;
+}
+
+void reverse(struct Array *array)
+{
+    if ((*array).length < 1)
+        return;
+
+    int *temp_array;
+    temp_array = (int *)malloc((*array).size * (sizeof(*temp_array)));
+
+    for (int i = (*array).length - 1; i >= 0; i -= 1)
+        temp_array[(*array).length - 1 - i] = (*array).arr[i];
+
+    for (int i = 0; i < (*array).length; i += 1)
+        (*array).arr[i] = temp_array[i];
 }
