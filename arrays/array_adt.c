@@ -14,10 +14,10 @@ void insert(struct Array *array, int element, int atIdx);
 void add(struct Array *array, int element);
 void delete(struct Array *array, int atIdx);
 void search(struct Array *array);
-void get(struct Array *array);
-void set(struct Array *array);
-void max(struct Array *array);
-void min(struct Array *array);
+int get(struct Array *array, int idx);
+int set(struct Array *array, int idx, int elem);
+int max(struct Array *array);
+int min(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
@@ -146,3 +146,23 @@ bool binary_search(struct Array *array, int target)
 
     return false;
 }
+
+int get(struct Array *array, int idx)
+{
+    if (idx > ((*array).length - 1))
+        return -1;
+
+    return (*array).arr[idx];
+}
+
+int set(struct Array *array, int idx, int elem)
+{
+    if (idx > ((*array).length - 1))
+        return -1;
+
+    (*array).arr[idx] = elem;
+    return elem;
+}
+
+int max(struct Array *array);
+int min(struct Array *array);
