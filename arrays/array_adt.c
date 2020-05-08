@@ -19,6 +19,7 @@ int get(struct Array *array, int idx);
 int set(struct Array *array, int idx, int elem);
 int max(struct Array *array);
 int min(struct Array *array);
+int avg(struct Array *array);
 void reverse(struct Array *array);
 void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
@@ -185,4 +186,20 @@ int min(struct Array *array)
             min = (*array).arr[i];
 
     return min;
+}
+
+int avg(struct Array *array)
+{
+    if ((*array).length < 1)
+        return -1;
+
+    int avg = 0;
+    int temp_acc = 0;
+
+    for (int i = 0; i < (*array).length; i += 1)
+        temp_acc += (*array).arr[i];
+
+    avg = temp_acc / (*array).length;
+
+    return avg;
 }
