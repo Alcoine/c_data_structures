@@ -168,9 +168,12 @@ int set(struct Array *array, int idx, int elem)
 
 int max(struct Array *array)
 {
-    int max = INT_MIN;
+    if ((*array).length < 1)
+        return -1;
+        
+    int max = (*array).arr[0];
 
-    for (int i = 0; i < (*array).length; i += 1)
+    for (int i = 1; i < (*array).length; i += 1)
         if ((*array).arr[i] > max)
             max = (*array).arr[i];
 
@@ -179,9 +182,12 @@ int max(struct Array *array)
 
 int min(struct Array *array)
 {
-    int min = INT_MAX;
+    if ((*array).length < 1)
+        return -1;
 
-    for (int i = 0; i < (*array).length; i += 1)
+    int min = (*array).arr[0];
+
+    for (int i = 1; i < (*array).length; i += 1)
         if ((*array).arr[i] < min)
             min = (*array).arr[i];
 
