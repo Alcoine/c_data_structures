@@ -46,12 +46,6 @@ int main()
     insert(&array, 99, 0);
     insert(&array, 76, 0);
     insert(&array, 76, 0);
-    // bubble_sort(&array);
-    // display(&array);
-    // bool binary1 = binary_search(&array, 87);
-    // printf("\nHas 87?: %s\n", binary1 ? "true" : "false");
-    // bool binary2 = binary_search(&array, 312);
-    // printf("\nHas 312?: %s\n", binary2 ? "true" : "false");
     display(&array);
     reverse(&array);
     display(&array);
