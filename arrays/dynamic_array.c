@@ -3,7 +3,7 @@ struct Dynamic_array
     int *arr;
     int size;
     int length;
-}
+};
 
 int main()
 {
