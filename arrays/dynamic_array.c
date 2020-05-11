@@ -7,6 +7,7 @@ struct Dynamic_array
 
 int main()
 {
+    // TODO: figure out how to use packages in C
     // TODO: read about calloc and malloc
     // TODO: implement dynamic array based on provided size * 2
     // https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
