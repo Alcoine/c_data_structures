@@ -26,6 +26,7 @@ bool linear_search(struct Array *array, int target);
 bool binary_search(struct Array *array, int target);
 void bubble_sort(struct Array *array);
 bool is_sorted_asc(struct Array *array);
+bool is_sorted_desc(struct Array *array);
 
 int main()
 {
@@ -242,11 +243,22 @@ void reverse(struct Array *array)
     }
 }
 
+// TODO: test methods below
+
 bool is_sorted_asc(struct Array *array)
 {
-    for (int i = 0; i < (*array).length - 1; i += 1)
+    for (int i = 0; i < (*array).length; i += 1)
         if ((*array).arr[i] > (*array).arr[i + 1])
             return false;
 
+    return true;
+}
+
+bool is_sorted_desc(struct Array *array)
+{
+    for(int i = 0; i < (*array).length; i += 1)
+        if ((*array).arr[i] < (*array).arr[i + 1])
+            return false;
+    
     return true;
 }
