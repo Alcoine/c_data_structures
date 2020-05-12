@@ -15,3 +15,12 @@ int main()
     // https://www.geeksforgeeks.org/memory-layout-of-c-program/
     return 0;
 }
+
+void add(struct Dynamic_array *array, int element)
+{
+    if ((*array).length < (*array).size)
+    {
+        (*array).arr[(*array).length] = element;
+        (*array).length += 1;
+    }
+}
