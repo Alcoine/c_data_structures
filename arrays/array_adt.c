@@ -11,9 +11,9 @@ struct Array
 };
 
 void display(struct Array *array);
-void insert(struct Array *array, int element, int atIdx);
+void insert(struct Array *array, int element, int at_idx);
 void add(struct Array *array, int element);
-void delete(struct Array *array, int atIdx);
+void delete(struct Array *array, int at_idx);
 int get(struct Array *array, int idx);
 int set(struct Array *array, int idx, int elem);
 int max(struct Array *array);
@@ -84,24 +84,24 @@ void display(struct Array *array)
         printf("%d\n", (*array).arr[i]);
 }
 
-void insert(struct Array *array, int element, int atIdx)
+void insert(struct Array *array, int element, int at_idx)
 {
-    if (atIdx < 0 || atIdx > (*array).length)
+    if (at_idx < 0 || at_idx > (*array).length)
         return;
 
-    for (int i = (*array).length; i > atIdx; i -= 1)
+    for (int i = (*array).length; i > at_idx; i -= 1)
         (*array).arr[i] = (*array).arr[i - 1];
 
-    (*array).arr[atIdx] = element;
+    (*array).arr[at_idx] = element;
     (*array).length += 1;
 }
 
-void delete(struct Array *array, int atIdx)
+void delete(struct Array *array, int at_idx)
 {
-    if (atIdx < 0 || atIdx > (*array).size)
+    if (at_idx < 0 || at_idx > (*array).size)
         return;
 
-    for (int i = atIdx; i < (*array).length; i += 1)
+    for (int i = at_idx; i < (*array).length; i += 1)
         (*array).arr[i] = (*array).arr[i + 1];
 
     (*array).length -= 1;
