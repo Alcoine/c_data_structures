@@ -24,3 +24,9 @@ void add(struct Dynamic_array *array, int element)
         (*array).length += 1;
     }
 }
+
+void display(struct Array *array)
+{
+    for (int i = 0; i < (*array).length; i += 1)
+        printf("%d\n", (*array).arr[i]);
+}
