@@ -25,8 +25,19 @@ void add(struct Dynamic_array *array, int element)
     }
 }
 
-void display(struct Array *array)
+void display(struct Dynamic_array *array)
 {
     for (int i = 0; i < (*array).length; i += 1)
         printf("%d\n", (*array).arr[i]);
+}
+
+void delete(struct Dynamic_array *array, int at_idx)
+{
+    if (at_idx < 0 || at_idx > (*array).size)
+        return;
+
+    for (int i = at_idx; i < (*array).length; i += 1)
+        (*array).arr[i] = (*array).arr[i + 1];
+
+    (*array).length -= 1;
 }
