@@ -47,15 +47,7 @@ int main()
     insert(&array, 99, 0);
     insert(&array, 76, 0);
     insert(&array, 76, 0);
-    display(&array);
-    reverse(&array);
-    display(&array);
-    bool is_sorted = is_sorted_asc(&array);
-    printf("\nsorted?: %s\n", is_sorted ? "true" : "false");
-    bubble_sort(&array);
-    is_sorted = is_sorted_asc(&array);
-    printf("\nsorted?: %s\n", is_sorted ? "true" : "false");
-
+    
     return 0;
 }
 

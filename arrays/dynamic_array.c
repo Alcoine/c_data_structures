@@ -1,4 +1,4 @@
-struct Dynamic_array
+struct Dynamic_Array
 {
     int *arr;
     int size;
@@ -16,7 +16,7 @@ int main()
     return 0;
 }
 
-void add(struct Dynamic_array *array, int element)
+void add(struct Dynamic_Array *array, int element)
 {
     if ((*array).length < (*array).size)
     {
@@ -25,13 +25,13 @@ void add(struct Dynamic_array *array, int element)
     }
 }
 
-void display(struct Dynamic_array *array)
+void display(struct Dynamic_Array *array)
 {
     for (int i = 0; i < (*array).length; i += 1)
         printf("%d\n", (*array).arr[i]);
 }
 
-void delete(struct Dynamic_array *array, int at_idx)
+void delete(struct Dynamic_Array *array, int at_idx)
 {
     if (at_idx < 0 || at_idx > (*array).size)
         return;
