@@ -21,7 +21,6 @@ int min(struct Array *array);
 int avg(struct Array *array);
 int sum(struct Array *array);
 void reverse(struct Array *array);
-void shift(struct Array *array);
 bool linear_search(struct Array *array, int target);
 bool binary_search(struct Array *array, int target);
 void bubble_sort(struct Array *array);
