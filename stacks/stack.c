@@ -6,6 +6,7 @@ struct Array
 };
 
 int peek(struct Array *array);
+int push(strcut Array *array, int element);
 
 int main()
 {
