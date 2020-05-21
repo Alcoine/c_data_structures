@@ -58,7 +58,7 @@ dkms.conf
 !.vscode/extensions.json
 *.code-workspace
 *.o
-*
+
 !*.c
 # Local History for Visual Studio Code
 .history/
