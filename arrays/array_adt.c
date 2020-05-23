@@ -44,8 +44,6 @@ int main()
     insert(&array, 87, 0);
     insert(&array, 65, 0);
     insert(&array, 99, 0);
-    insert(&array, 76, 0);
-    insert(&array, 76, 0);
     
     return 0;
 }
