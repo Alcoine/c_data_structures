@@ -36,14 +36,6 @@ int main()
 
     array.arr = (int *)malloc(array.size * sizeof(array.arr));
     array.length = 0;
-    insert(&array, 4, 0);
-    insert(&array, 123, 0);
-    insert(&array, 41, 0);
-    insert(&array, 312, 0);
-    insert(&array, 5555, 0);
-    insert(&array, 87, 0);
-    insert(&array, 65, 0);
-    insert(&array, 99, 0);
     
     return 0;
 }
