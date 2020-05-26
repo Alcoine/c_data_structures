@@ -1,1 +1,2 @@
 https://medium.com/@codingfreak/top-algorithms-data-structures-concepts-every-computer-science-student-should-know-e0549c67b4achttps://en.wikipedia.org/wiki/List_of_algorithms
+Check Knuth implementation
