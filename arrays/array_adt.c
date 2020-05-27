@@ -224,8 +224,6 @@ void reverse(struct Array *array)
     }
 }
 
-// TODO: test methods below
-
 bool is_sorted_asc(struct Array *array)
 {
     for (int i = 0; i < (*array).length; i += 1)
